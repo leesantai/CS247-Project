@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">去邊好?</string>
+
+    <string name="Miles">里</string>
+    <string name="Kilometers">公里</string>
+    
+    <!-- Event Creation Strings -->
+    <string name="Create_Event_Name">事件名稱</string>
+    <string name="Create_Event_Description">描述</string>
+    <string name="Create_Event_Address">地址</string>
+    <string name="Create_Event_Time">時間</string>
+    <string name="Create_Event_Change_Time_Button">更改時間</string>
+    <string name="Create_Event_Date">日期</string>
+    <string name="Create_Event_Change_Date_Button">更改日期</string>
+    <string name="Browse_Picture_Button">瀏覽圖片</string>
+    <string name="Submit_Button">提交</string>
+    <string name="Create_Event_Alert_Dialog_Title">無網絡連線</string>
+    <string name="Create_Event_Alert_Dialog_Text">你的電話未連接到網絡。</string>
+    <!-- Event List Strings -->
+    <string name="Event_List_Title">事件清單</string>
+    
+    <!-- EventList Item Strings -->
+    <string name="Image_Content_Description">事件圖標</string>
+    <string name="Event_Item_Time">時間:</string>
+    <string name="Event_Item_Date">日期:</string>
+    <string name="Event_Item_Distance">away.</string>
+    
+    
+    <!-- Event Class Labels -->
+    <string name="Event_Class_Distance">距離事件:</string>
+    <string name="Event_Class_Time">時間:</string>
+    <string name="Event_Class_Date">日期:</string>
+    <string name="Event_Class_Description">事件詳情</string>
+    
+    <!-- Refresh Events Strings -->
+    <string name="Refresh_Events_Dialog">載入中&#8230;</string>
+    
+    <!-- Upload Event Strings -->
+    <string name="Upload_Event_Dialog">上載中&#8230;</string>
+    <string name="Upload_Event_Alert_Dialog_Title">地址錯誤</string>
+    <string name="Upload_Event_Alert_Dialog_Text">找不到輸入的地址。
+        請重新輸入。</string>
+    
+    
+    <!-- Menu Labels -->
+	<string name="menu_refresh">更新</string>
+	<string name="menu_prefs">喜好</string>
+	
+	
+	
+	<!-- Event Search Strings -->
+	<string name="Search_Where">目的地</string>
+	<string name="Search_Near">在&#8230;附近</string>
+	<string-array name="location_array">
+        <item>我的位置</item>
+        <item>一個指定位置</item>
+        <item>其他</item>       
+    </string-array>
+	<string name="Search_Specify_Location">請輸入一個地方</string> 
+	<string name="Search_Specify_Address">請輸入一個地址</string>
+	<string name="Search_Distance">尋找距離該地址多遠的事件?</string>  
+    <string-array name="distance_array">
+        <item>1 里</item>
+        <item>2 里</item>
+        <item>5 里</item> 
+        <item>其他</item> 
+    </string-array>
+    <string-array name="distance_array_km">
+        <item>1 公里</item>
+        <item>2 公里</item>
+        <item>5 公里</item> 
+        <item>其他</item> 
+    </string-array>
+    <string name="Search_Specify_Distance">請指定距離</string>
+    
+    <string name="Search_Change_Time_Button">更改時間</string>
+    <string name="Search_Change_Date_Button">更改日期</string>
+    <string name="Search_Find_Events_Button">尋找事件</string>
+    
+    
+    <!-- GPS off notification Strings -->
+    <string name="GPS_Notification_Ticker_Text">去邊好? 需要知道你的位置。</string>
+    <string name="GPS_Notification_Content_Title">位置請求</string>
+    <string name="GPS_Notification_Content_Text">為確保服務質素，請開啟GPS。</string>
+    
+    <!-- Preference Menu Strings -->
+    <string name="Prefs_Location_Frequency_Title">位置更新頻率</string>
+    <string name="Prefs_Location_Frequency_Summary">高頻率會增加耗電量</string>
+    <string-array name="locationfrequency">
+        <item>2 分鐘</item>
+        <item>5 分鐘</item>
+        <item>10 分鐘</item>
+        <item>15 分鐘</item>
+        <item>30 分鐘</item>
+        <item>60 分鐘</item>       
+    </string-array>
+	
+</resources>
