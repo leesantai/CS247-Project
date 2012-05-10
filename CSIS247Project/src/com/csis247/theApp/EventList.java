@@ -121,17 +121,17 @@ public class EventList extends Activity {
             String country = locale.getString("country", "hello");
 
             Integer englishDist = (int) Math.round(0.62137 * distance);
-            if (distance != 1) {
                 if (country.equals("USA") || country.equals("GBR")) {
-                    singleEventMap.put("distance", englishDist.toString() + " " + getResources().getString(R.string.Miles) + " " + getResources().getString(R.string.Away));
+                    if (englishDist != 1) {
+                    singleEventMap.put("distance", getResources().getString(R.string.Event_Class_Distance) + " " + englishDist.toString() + " " + getResources().getString(R.string.Miles));
+                    } else {
+                        singleEventMap.put("distance", getResources().getString(R.string.Event_Class_Distance) + " " + englishDist.toString() + " " + getResources().getString(R.string.Mile));
+                    }
                 } else {
-                    singleEventMap.put("distance", distance.toString() + " " + getResources().getString(R.string.Kilometers)  + " " + getResources().getString(R.string.Away));
-                }
-            } else {
-                if (country.equals("USA") || country.equals("GBR")) {
-                    singleEventMap.put("distance", englishDist.toString() + " " + getResources().getString(R.string.Mile)  + " " + getResources().getString(R.string.Away));
-                } else {
-                    singleEventMap.put("distance", distance.toString() + " " + getResources().getString(R.string.Kilometer)  + " " + getResources().getString(R.string.Away));
+                    if (distance != 1) {
+                        singleEventMap.put("distance", getResources().getString(R.string.Event_Class_Distance) + " " + distance.toString() + " " + getResources().getString(R.string.Kilometers));
+                    } else {
+                    singleEventMap.put("distance", getResources().getString(R.string.Event_Class_Distance) + " " + distance.toString() + " " + getResources().getString(R.string.Kilometer));
                 }
             }
 
