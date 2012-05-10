@@ -111,7 +111,30 @@ public class EventList extends Activity {
             singleEventMap.put("title",eventInfo.getString("title", "PROBLEM"));
             singleEventMap.put("time", getResources().getString(R.string.Event_Item_Time) + " " + eventInfo.getString("time", "PROBLEM"));
             singleEventMap.put("date", getResources().getString(R.string.Event_Item_Date) + " " + eventInfo.getString("date", "PROBLEM"));
-            singleEventMap.put("distance", eventInfo.getString("distance", "PROBLEM"));
+
+            String distString = eventInfo.getString("distance", "PROBLEM");
+            Double distance = Double.parseDouble(distString);
+
+
+            SharedPreferences locale = context.getSharedPreferences("locale"
+                            , Context.MODE_PRIVATE);
+            String country = locale.getString("country", "hello");
+
+            Integer englishDist = (int) Math.round(0.62137 * distance);
+            if (distance != 1) {
+                if (country.equals("USA") || country.equals("GBR")) {
+                    singleEventMap.put("distance", englishDist.toString() + " " + getResources().getString(R.string.Miles) + " " + getResources().getString(R.string.Away));
+                } else {
+                    singleEventMap.put("distance", distance.toString() + " " + getResources().getString(R.string.Kilometers)  + " " + getResources().getString(R.string.Away));
+                }
+            } else {
+                if (country.equals("USA") || country.equals("GBR")) {
+                    singleEventMap.put("distance", englishDist.toString() + " " + getResources().getString(R.string.Mile)  + " " + getResources().getString(R.string.Away));
+                } else {
+                    singleEventMap.put("distance", distance.toString() + " " + getResources().getString(R.string.Kilometer)  + " " + getResources().getString(R.string.Away));
+                }
+            }
+
             listItems.add(singleEventMap);
         }
 

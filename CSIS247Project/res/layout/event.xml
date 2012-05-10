@@ -11,7 +11,8 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:textSize="25dip"
-        android:textColor="@android:color/white" />
+        android:textColor="@android:color/white"
+        android:textStyle="bold" />
 
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -26,7 +27,8 @@
             android:textSize="18dip"
             android:layout_marginLeft="5dip"
             android:text="@string/Event_Class_Distance"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/Text_EventActivity_Distance_Number"
@@ -49,7 +51,8 @@
             android:textSize="18dip"
             android:layout_marginLeft="5dip"
             android:text="@string/Event_Class_Time"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/Text_EventActivity_Time_Number"
@@ -62,10 +65,11 @@
             android:id="@+id/Text_EventActivity_Date_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dip"
+            android:layout_marginLeft="20dip"
             android:textSize="18dip"
             android:text="@string/Event_Class_Date"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/Text_EventActivity_Date_Number"
@@ -82,7 +86,8 @@
         android:textSize="18dip"
         android:layout_marginLeft="5dip"
         android:text="@string/Event_Class_Description"
-        android:textColor="@android:color/white" />
+        android:textColor="@android:color/white"
+        android:textStyle="bold" />
     <TextView
         android:id="@+id/Text_EventActivity_Description"
         android:layout_width="fill_parent"
@@ -94,12 +99,13 @@
     <!--
          Debug key 
 		android:apiKey="0SSIxJTKJsHtfGyTOT1qCzix0QDQzP8j0RuAmmw"
+		real Key: 0SSIxJTKJsHtmzxXjWcBH46sH8nhO6ZNYinPheQ
     -->
 
     <com.google.android.maps.MapView
         android:id="@+id/Event_Map"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:apiKey="0SSIxJTKJsHtmzxXjWcBH46sH8nhO6ZNYinPheQ"
+        android:apiKey="0SSIxJTKJsHtfGyTOT1qCzix0QDQzP8j0RuAmmw"
         android:clickable="true" />
 </LinearLayout>
