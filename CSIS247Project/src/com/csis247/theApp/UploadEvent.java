@@ -38,13 +38,13 @@ public class UploadEvent extends AsyncTask<Void, Void, Void> {
     private EditText eventDescription;
     private EditText eventAddress;
     private TextView eventTime;
-    private TextView eventDate;
-    private double lat;
-    private double lon;
+    private String eventDate;
+    private double event_lat;
+    private double event_lon;
     
     boolean noAddress = false;
 
-    public UploadEvent(Activity activity, EditText name, EditText description, EditText address, TextView time, TextView date) {
+    public UploadEvent(Activity activity, EditText name, EditText description, EditText address, TextView time, String date) {
         callingActivity = activity;
         eventName = name;
         eventDescription = description;
@@ -78,11 +78,16 @@ public class UploadEvent extends AsyncTask<Void, Void, Void> {
             event_name = URLEncoder.encode(eventName.getText().toString(), "UTF-8");
             event_description = URLEncoder.encode(eventDescription.getText().toString(), "UTF-8");
             event_address = URLEncoder.encode(eventAddress.getText().toString(), "UTF-8");
-            event_time = eventTime.getText().toString();
-            event_date = eventDate.getText().toString();
+            event_time = URLEncoder.encode(eventTime.getText().toString(), "UTF-8");
+            event_date = eventDate;
+            //System.out.println("event_date:" + event_date);
+            //event_date = "11-11-2012";
+            //String b;
+            //event_date = URLEncoder.encode(event_date, "UTF-8");
 
             SharedPreferences locale = callingActivity.getSharedPreferences("locale", Context.MODE_PRIVATE);
-            String country =  locale.getString("country", "PROBLEM");
+            String event_country =  locale.getString("country", "PROBLEM");
+            event_country = URLEncoder.encode(event_country, "UTF-8");
 
             /* gets the lat, lon coordinates from an address */
             Geocoder coder = new Geocoder(callingActivity);
@@ -93,8 +98,8 @@ public class UploadEvent extends AsyncTask<Void, Void, Void> {
                 return null;
             }
             Address location = address.get(0);
-            lat = location.getLatitude();
-            lon = location.getLongitude();
+            event_lat = location.getLatitude();
+            event_lon = location.getLongitude();
 
 
 
@@ -111,8 +116,9 @@ public class UploadEvent extends AsyncTask<Void, Void, Void> {
              * 
              */
 
-            
-            String link = "http://i.cs.hku.hk/~stlee/gowhere_create_event.php?event_name="+event_name+"&event_description="+event_description+"&event_address="+event_address+"&";
+            String link = "http://i.cs.hku.hk/~stlee/gowhere_create_event.php?event_name="+event_name+"&event_description="+event_description+"&event_address="+event_address+"&event_time="+event_time+"&event_date="+event_date+"&event_lat="+event_lat+"&event_lon="+event_lon+"&event_country="+event_country;
+    		
+            //String link = "http://i.cs.hku.hk/~stlee/gowhere_create_event.php?event_name="+event_name+"&event_description="+event_description+"&event_address="+event_address+"&";
             Utils.getData(link);
             
         } catch (NumberFormatException e) {

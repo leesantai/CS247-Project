@@ -45,13 +45,13 @@ public class Communicator {
     }
     
     public Communicator(){}
-
+/*
     public void communicate(EditText eventName, EditText eventDescription, EditText eventAddress, String eventTime, String eventDate) {
     	
-    	/*SharedPreferences currentLocation = callingContext.getSharedPreferences("location", Context.MODE_PRIVATE);
+    	SharedPreferences currentLocation = callingContext.getSharedPreferences("location", Context.MODE_PRIVATE);
         double lat = currentLocation.getFloat("lat", 0);
         double lon = currentLocation.getFloat("lon", 0);
-        */
+        
     	try {
     		String link, event_name, event_description, event_address, event_time, event_date, event_lat, event_lon, event_country;
         	event_name = URLEncoder.encode(eventName.getText().toString(), "UTF-8");
@@ -79,7 +79,7 @@ public class Communicator {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-    }
+    }*/
     public void communicate() {
 
         /*
