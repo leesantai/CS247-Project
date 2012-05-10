@@ -93,15 +93,37 @@ public class Event extends MapActivity {
                         , Context.MODE_PRIVATE);
         lat = (double) locationInfo.getFloat("lat", 0);
         lon = (double) locationInfo.getFloat("lon", 0);
-        
+
+        Double distNum = Utils.GetDistanceFromLatLon(lat, lon, eventInfo.getFloat("lat", 0)
+                        , eventInfo.getFloat("lon", 0));
+        Integer dist = (int) Math.round(distNum/1000);
+        SharedPreferences locale = context.getSharedPreferences("locale"
+                        , Context.MODE_PRIVATE);
+        String country = locale.getString("country", "hello");
+
+        Integer englishDist = (int) Math.round(0.62137 * dist);
+        if (dist != 1) {
+            if (country.equals("USA") || country.equals("GBR")) {
+                distance.setText(" " + englishDist.toString() + " " + getResources().getString(R.string.Miles));
+            } else {
+                distance.setText(" " + dist.toString() + " " + getResources().getString(R.string.Kilometers));
+            }
+        } else {
+            if (country.equals("USA") || country.equals("GBR")) {
+                distance.setText(" " + englishDist.toString() + " " + getResources().getString(R.string.Mile));
+            } else {
+                distance.setText(" " + dist.toString() + " " + getResources().getString(R.string.Kilometer));
+            }
+        }
+
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        
+
         initalizeLocation();
-        
+
         //Register a broadcast receiver to receive location updates from the background service
         IntentFilter intentFilter = new IntentFilter("com.csis247.theApp.customLocationUpdate");
         this.getApplicationContext().registerReceiver(this.locationInfoReceiver, intentFilter);
@@ -142,8 +164,8 @@ public class Event extends MapActivity {
         date.setText(" " + eventInfo.getString("date", "PROBLEM"));
         time.setText(" " + eventInfo.getString("time", "PROBLEM"));
         
-        Double dist = Utils.GetDistanceFromLatLon(lat, lon, Double.parseDouble(eventInfo.getString("lat", "0"))
-                        , Double.parseDouble(eventInfo.getString("lon", "0")));              
+        Double dist = Utils.GetDistanceFromLatLon(lat, lon, eventInfo.getFloat("lat", 0)
+                        , eventInfo.getFloat("lon", 0));              
         distance.setText(" " + dist.toString());
     }
 
@@ -193,9 +215,30 @@ public class Event extends MapActivity {
                     lat = extras.getDouble("lat");
                     lon = extras.getDouble("lon");
 
-                    Double dist = Utils.GetDistanceFromLatLon(lat, lon, Double.parseDouble(eventInfo.getString("lat", "0"))
-                                    , Double.parseDouble(eventInfo.getString("lon", "0")));              
-                    distance.setText(" " + dist.toString());
+                    Double distNum = Utils.GetDistanceFromLatLon(lat, lon, eventInfo.getFloat("lat", 0)
+                                    , eventInfo.getFloat("lon", 0));
+                    Integer dist = (int) Math.round(distNum/1000);
+
+
+                    SharedPreferences locale = context.getSharedPreferences("locale"
+                                    , Context.MODE_PRIVATE);
+                    String country = locale.getString("country", "hello");
+
+                    
+                    Integer englishDist = (int) Math.round(0.62137 * dist);
+                    if (dist != 1) {
+                        if (country.equals("USA") || country.equals("GBR")) {
+                            distance.setText(" " + englishDist.toString() + " " + getResources().getString(R.string.Miles));
+                        } else {
+                            distance.setText(" " + dist.toString() + " " + getResources().getString(R.string.Kilometers));
+                        }
+                    } else {
+                        if (country.equals("USA") || country.equals("GBR")) {
+                            distance.setText(" " + englishDist.toString() + " " + getResources().getString(R.string.Mile));
+                        } else {
+                            distance.setText(" " + dist.toString() + " " + getResources().getString(R.string.Kilometer));
+                        }
+                    }
 
                     updateMap();
 
