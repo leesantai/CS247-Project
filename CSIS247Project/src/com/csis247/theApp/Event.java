@@ -102,20 +102,20 @@ public class Event extends MapActivity {
         String country = locale.getString("country", "hello");
 
         Integer englishDist = (int) Math.round(0.62137 * dist);
-        if (dist != 1) {
-            if (country.equals("USA") || country.equals("GBR")) {
+        if (country.equals("USA") || country.equals("GBR")) {
+            if (englishDist != 1) {
                 distance.setText(" " + englishDist.toString() + " " + getResources().getString(R.string.Miles));
             } else {
-                distance.setText(" " + dist.toString() + " " + getResources().getString(R.string.Kilometers));
+                distance.setText(" " + englishDist.toString() + " " + getResources().getString(R.string.Mile));
+
             }
         } else {
-            if (country.equals("USA") || country.equals("GBR")) {
-                distance.setText(" " + englishDist.toString() + " " + getResources().getString(R.string.Mile));
+            if (dist != 1) {
+                distance.setText(" " + dist.toString() + " " + getResources().getString(R.string.Kilometers));
             } else {
                 distance.setText(" " + dist.toString() + " " + getResources().getString(R.string.Kilometer));
             }
         }
-
     }
 
     @Override
@@ -224,17 +224,18 @@ public class Event extends MapActivity {
                                     , Context.MODE_PRIVATE);
                     String country = locale.getString("country", "hello");
 
-                    
+
                     Integer englishDist = (int) Math.round(0.62137 * dist);
-                    if (dist != 1) {
-                        if (country.equals("USA") || country.equals("GBR")) {
+                    if (country.equals("USA") || country.equals("GBR")) {
+                        if (englishDist != 1) {
                             distance.setText(" " + englishDist.toString() + " " + getResources().getString(R.string.Miles));
                         } else {
-                            distance.setText(" " + dist.toString() + " " + getResources().getString(R.string.Kilometers));
+                            distance.setText(" " + englishDist.toString() + " " + getResources().getString(R.string.Mile));
+
                         }
                     } else {
-                        if (country.equals("USA") || country.equals("GBR")) {
-                            distance.setText(" " + englishDist.toString() + " " + getResources().getString(R.string.Mile));
+                        if (dist != 1) {
+                            distance.setText(" " + dist.toString() + " " + getResources().getString(R.string.Kilometers));
                         } else {
                             distance.setText(" " + dist.toString() + " " + getResources().getString(R.string.Kilometer));
                         }
