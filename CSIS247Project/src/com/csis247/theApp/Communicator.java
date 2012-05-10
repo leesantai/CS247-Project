@@ -128,8 +128,8 @@ public class Communicator {
                         editor.putString("address", row.getString("address"));
                         editor.putString("time", row.getString("time"));
                         editor.putString("date", row.getString("date"));
-                        editor.putString("lat", row.getString("lat"));
-                        editor.putString("lon", row.getString("lon"));
+                        editor.putFloat("lat", Float.parseFloat(row.getString("lat")));
+                        editor.putFloat("lon", Float.parseFloat(row.getString("lon")));
                         editor.putString("country", row.getString("country"));
                         
                         /*
@@ -140,7 +140,8 @@ public class Communicator {
                          * 
                          */
                         /*this is the distance that I put into shared preferences. It's done. Don't touch please */
-                        Double dist = Utils.GetDistanceFromLatLon(lat, lon, Double.parseDouble(row.getString("lat")), Double.parseDouble(row.getString("lon")));              
+                        Double distance = Utils.GetDistanceFromLatLon(lat, lon, Double.parseDouble(row.getString("lat")), Double.parseDouble(row.getString("lon")));
+                        Integer dist = (int) Math.round(distance/1000);
                         editor.putString("distance", dist.toString());
                         editor.commit();
                     }

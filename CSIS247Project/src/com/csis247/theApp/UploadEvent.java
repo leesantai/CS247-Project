@@ -95,6 +95,7 @@ public class UploadEvent extends AsyncTask<Void, Void, Void> {
             Address location = address.get(0);
             lat = location.getLatitude();
             lon = location.getLongitude();
+            
 
 
 

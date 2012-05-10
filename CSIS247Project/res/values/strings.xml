@@ -5,6 +5,9 @@
 
     <string name="Miles">miles</string>
     <string name="Kilometers">kilometers</string>
+    <string name="Mile">mile</string>
+    <string name="Kilometer">kilometer</string>
+    <string name="Away">away</string>
     
     <!-- Event Creation Strings -->
     <string name="Create_Event_Name">Event Name</string>
